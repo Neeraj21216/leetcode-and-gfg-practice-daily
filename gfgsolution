@@ -1,0 +1,33 @@
+//gfg solution 
+// User function Template for C++
+class Solution {
+  public:
+  //time complexity o(log(e);
+  //space complexity o(1)
+    double mod=1e9+7;
+    double solve(double b, int e){
+         // code here
+        if(e==0){
+            return 1;
+        }
+        //now theproblem here comes 
+        double recursiveans=(solve(b,e/2));
+        if(e%2==0){
+            return ((recursiveans*recursiveans));
+        }
+        else{
+            return ((((recursiveans* recursiveans))*b));
+        }
+    }
+    double power(double b, int e) {
+        // code here
+        if(e>0){
+            return solve(b,e);
+            
+        }
+        double ans=1/(solve(b,abs(e)));
+        return ans;
+       
+        
+    }
+};
